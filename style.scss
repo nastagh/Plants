@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all .3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+$orange_color: #E06733;
+$green_color: #499A18;
+$light_grey: #717171;
+$dark_grey:  #636060;
+$section_color: #EDF2EC;
+$black_color: #010201;
+
+@font-face {
+  font-family: 'Inika';
+  src: url('./assets/fonts/Inika/Inika-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter/Inter-Regular.ttf');
+}
+
+@mixin font ($size, $height, $style, $weight) {
+  font-size: $size;
+  font-style: $style;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+.wrapper{
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.section_background{
+  background-color: $section_color;
+}
+
+//Header
+
+.header{
+  height: 134px;
+}
+
+
+.header__navigate{
+  display: flex;
+  justify-content: space-between;
+}

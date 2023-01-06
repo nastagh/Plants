@@ -1,1 +1,45 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'Inika';
+  src: url("./assets/fonts/Inika/Inika-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./assets/fonts/Inter/Inter-Regular.ttf");
+}
+
+.wrapper {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.section_background {
+  background-color: #EDF2EC;
+}
+
+.header {
+  height: 134px;
+}
+
+.header__navigate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=style.css.map */
