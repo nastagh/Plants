@@ -154,11 +154,12 @@ $content_width_mobile: 330px;
 }
 
 .container-link-navigate.active {
-  right: 0;
-  overflow-y: auto;
-  height: 100vh;
+  @include media-middle-mobile() {
+    right: 0;
+    overflow-y: auto;
+    height: 100vh;
+  }
 }
-
 
 .link-navigate {
   display: flex;
@@ -369,7 +370,15 @@ $content_width_mobile: 330px;
 .button_welcome {
   width: 158px;
   height: 44px;
-  @include font(16px, 20px, normal, 400, #000000, "Inter");
+
+  a {
+    text-decoration: none;
+    @include font(16px, 20px, normal, 400, #000000, "Inter");
+  }
+
+  &:hover a{
+    color: #ffffff;
+  }
 
   @include media-mobile() {
     width: 100px;
@@ -537,6 +546,11 @@ $content_width_mobile: 330px;
     font-size: 15px;
     line-height: 20px;
   }
+}
+
+.button_checked {
+  background-color: $orange_color;
+  color: #ffffff;
 }
 
 .services-text {

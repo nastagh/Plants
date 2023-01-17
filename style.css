@@ -116,10 +116,12 @@ html {
   }
 }
 
-.container-link-navigate.active {
-  right: 0;
-  overflow-y: auto;
-  height: 100vh;
+@media only all and (max-width: 650px) {
+  .container-link-navigate.active {
+    right: 0;
+    overflow-y: auto;
+    height: 100vh;
+  }
 }
 
 .link-navigate {
@@ -398,12 +400,20 @@ html {
 .button_welcome {
   width: 158px;
   height: 44px;
+}
+
+.button_welcome a {
+  text-decoration: none;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
   color: #000000;
   font-family: "Inter";
+}
+
+.button_welcome:hover a {
+  color: #ffffff;
 }
 
 @media only all and (max-width: 380px) {
@@ -629,6 +639,11 @@ html {
     font-size: 15px;
     line-height: 20px;
   }
+}
+
+.button_checked {
+  background-color: #e06733;
+  color: #ffffff;
 }
 
 .services-text {

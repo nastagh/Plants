@@ -28,17 +28,14 @@ serviceButtons.forEach((btn) => {
   const button = document.createElement("button");
   button.classList.add("button");
   button.classList.add("button_service");
+  // button.setAttribute('disabled');
   button.value = btn;
   button.innerHTML = btn;
   serviceButtonContainer.append(button);
 });
 
-serviceButtonContainer.addEventListener("click", (e) =>
-  console.log(e.target.value)
-);
-
-const mediaSize = '(max-width: 768px) 260px';
-const description = 'Lorem Ipsum has been the industry';
+const mediaSize = "(max-width: 768px) 260px";
+const description = "Lorem Ipsum has been the industry";
 
 const projects = [
   {
@@ -50,7 +47,7 @@ const projects = [
       src: "/assets/images/first.png",
       alt: "garden care",
     },
-    text: 'Garden care',
+    text: "Garden care",
     description: description,
   },
   {
@@ -62,7 +59,7 @@ const projects = [
       src: "/assets/images/first-2.png",
       alt: "Planting",
     },
-    text: 'Planting',
+    text: "Planting",
     description: description,
   },
   {
@@ -74,8 +71,8 @@ const projects = [
       src: "/assets/images/first-3.png",
       alt: "Lawn care",
     },
-    text: 'Lawn care',
-    description: description
+    text: "Lawn care",
+    description: description,
   },
   {
     id: 4,
@@ -86,8 +83,8 @@ const projects = [
       src: "/assets/images/first-4.png",
       alt: "Planting",
     },
-    text: 'Planting',
-    description: description
+    text: "Planting",
+    description: description,
   },
   {
     id: 5,
@@ -98,8 +95,8 @@ const projects = [
       src: "/assets/images/first-5.png",
       alt: "Garden care",
     },
-    text: 'Garden care',
-    description: description
+    text: "Garden care",
+    description: description,
   },
   {
     id: 6,
@@ -110,37 +107,64 @@ const projects = [
       src: "/assets/images/first-6.png",
       alt: "Planting",
     },
-    text: 'Planting',
-    description: description
+    text: "Planting",
+    description: description,
   },
 ];
 
+const serviceItemContainer = document.getElementsByClassName(
+  "services-item-container"
+)[0];
 
-const serviceItemContainer = document.getElementsByClassName('services-item-container')[0];
+let item;
+let checkedProjects = [];
 
-projects.forEach(project => {
-  const item = document.createElement('div');
-  item.classList.add('service-item');
-  item.classList.add('blur');
-  const img = document.createElement('img');
-  img.setAttribute('srcset', project.img.srcset);
-  img.setAttribute('sizes', project.img.sizes);
-  img.setAttribute('src', project.img.src);
-  img.setAttribute('alt', project.img.alt);
-  item.append(img);
+const drawCards = (projectsArray) => {
+  serviceItemContainer.innerHTML = "";
+  return projects.forEach((project) => {
+    item = document.createElement("div");
+    item.classList.add("service-item");
+    item.classList.add("blur");
 
-  const itemText = document.createElement('div');
-  itemText.classList.add('service-item__text');
-  const subtitle = document.createElement('p');
-  subtitle.classList.add('service-item__text_subtitle');
-  subtitle.innerHTML=project.text;
-  itemText.append(subtitle);
+    if (projectsArray.length) {
+      projectsArray.forEach((el) => {
+        if (
+          project.text.toLowerCase().includes(el) ||
+          (project.text.split(" ")[0] + "s").toLowerCase().includes(el)
+        ) {
+          item.classList.remove("blur");
+        }
+      });
+    }
 
-  const descr = document.createElement('p');
-  descr.classList.add('service-item__text_desc');
-  descr.innerHTML= project.description;
-  itemText.append(descr);
+    item.innerHTML = `<img
+    srcset=${project.img.srcset}
+    sizes=${project.img.sizes}
+    src=${project.img.src}
+    alt=${project.img.alt}
+  />
+  <div class="service-item__text">
+    <p class="service-item__text_subtitle">${project.text}</p>
+    <p class="service-item__text_desc">
+      ${project.description}
+    </p>
+  </div>`;
+    serviceItemContainer.append(item);
+  });
+};
 
-  item.append(itemText);
-  serviceItemContainer.append(item);
-})
+drawCards(checkedProjects);
+
+serviceButtonContainer.addEventListener("click", (e) => {
+  const item = e.target.value.toLowerCase();
+    if (checkedProjects.includes(item)) {
+      checkedProjects = checkedProjects.filter((el) => el != item);
+      e.target.classList.toggle("button_checked");
+    } else {
+      if (checkedProjects.length < 2) {
+        checkedProjects.push(item);
+        e.target.classList.toggle("button_checked");
+      } 
+    }
+    drawCards(checkedProjects);
+});
