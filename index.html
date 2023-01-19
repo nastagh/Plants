@@ -110,39 +110,7 @@
           <div>
             <p class="prices-title">Prices</p>
             <div class="prices-item-container">
-              <div>
-                <div class="prices-item">
-                  <p class="prices-item-title">Basics</p>
-                  <button class="button-prices-item">
-                    <img src="/assets/images/arrow.svg" />
-                  </button>
-                </div>
-                <div>
-                  <p>
-                    Release of Letraset sheets containing Lorem Ipsum passages,
-                    and more recently
-                  </p>
-                  <div>
-                    <span>$25</span>
-                    <span>/per hour</span>
-                  </div>
-                  <button>Order</button>
-                </div>
-              </div>
-
-              <div class="prices-item">
-                <p class="prices-item-title">Standard</p>
-                <button class="button-prices-item">
-                  <img src="/assets/images/arrow.svg" />
-                </button>
-              </div>
-
-              <div class="prices-item">
-                <p class="prices-item-title">Pro care</p>
-                <button class="button-prices-item">
-                  <img src="/assets/images/arrow.svg" />
-                </button>
-              </div>
+              <!-- accordion -->
             </div>
           </div>
 
@@ -151,7 +119,9 @@
               Our best <span class="word-color">gardeners</span> are <br />
               ready to help you
             </p>
-            <button class="button button_prices">Contact us</button>
+            <button class="button button_prices">
+              <a href="#contacts" title="Contacts">Contact us</a>
+            </button>
             <img src="/assets/images/leafssmall.png" />
           </div>
         </div>
@@ -164,9 +134,18 @@
           </div>
           <h3 id="order1">Contact us</h3>
           <div class="select-container">
-            <select class="select-city">
-              <option>City</option>
-            </select>
+            <div class="select-city select-city_shadow">
+              <p id="current-city">City</p>
+              <button class="button-contact">
+                <img src="/assets/images/arrow-white.svg" />
+              </button>
+            </div>
+            <div class="accordion-contacts hidden">
+              <!-- accordion city-->
+            </div>
+            <div class="address-card-container hidden">
+              <!-- address card -->
+            </div>
           </div>
         </div>
       </section>

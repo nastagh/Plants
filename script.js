@@ -28,7 +28,6 @@ serviceButtons.forEach((btn) => {
   const button = document.createElement("button");
   button.classList.add("button");
   button.classList.add("button_service");
-  // button.setAttribute('disabled');
   button.value = btn;
   button.innerHTML = btn;
   serviceButtonContainer.append(button);
@@ -116,13 +115,13 @@ const serviceItemContainer = document.getElementsByClassName(
   "services-item-container"
 )[0];
 
-let item;
+// let item;
 let checkedProjects = [];
 
-const drawCards = (projectsArray) => {
+const drawProjectsCards = (projectsArray) => {
   serviceItemContainer.innerHTML = "";
   return projects.forEach((project) => {
-    item = document.createElement("div");
+    const item = document.createElement("div");
     item.classList.add("service-item");
     item.classList.add("blur");
 
@@ -153,18 +152,165 @@ const drawCards = (projectsArray) => {
   });
 };
 
-drawCards(checkedProjects);
+drawProjectsCards(checkedProjects);
 
 serviceButtonContainer.addEventListener("click", (e) => {
   const item = e.target.value.toLowerCase();
-    if (checkedProjects.includes(item)) {
-      checkedProjects = checkedProjects.filter((el) => el != item);
+  if (checkedProjects.includes(item)) {
+    checkedProjects = checkedProjects.filter((el) => el != item);
+    e.target.classList.toggle("button_checked");
+  } else {
+    if (checkedProjects.length < 2) {
+      checkedProjects.push(item);
       e.target.classList.toggle("button_checked");
-    } else {
-      if (checkedProjects.length < 2) {
-        checkedProjects.push(item);
-        e.target.classList.toggle("button_checked");
-      } 
     }
-    drawCards(checkedProjects);
+  }
+  drawProjectsCards(checkedProjects);
 });
+
+//Prices accordion
+
+const priceDescription =
+  "Release of Letraset sheets containing Lorem Ipsum passages, and more recently";
+const imagePath = "/assets/images/arrow.svg";
+const dataPrices = [
+  {
+    type: "Basics",
+    price: "$15",
+  },
+  {
+    type: "Standard",
+    price: "$25",
+  },
+  {
+    type: "Pro care",
+    price: "$35",
+  },
+];
+
+const pricesItemContainer = document.getElementsByClassName(
+  "prices-item-container"
+)[0];
+
+const drawPricesCard = (item) => {
+  const container = document.createElement("div");
+  container.classList.add("accordion-container");
+  container.innerHTML = `<div class="prices-item">
+  <p class="prices-item-title">${item.type}</p>
+  <button class="button-prices-item" value=${item.type}">
+    <img src=${imagePath} />
+  </button>
+</div>`;
+  const bottomAccordion = document.createElement("div");
+  bottomAccordion.classList.add("accordion-bottom");
+  bottomAccordion.classList.add("hidden");
+  bottomAccordion.innerHTML = `<p>
+${priceDescription}
+</p>
+<div>
+ <span>${item.price}</span>
+ <span>/per hour</span>
+</div>
+<button><a href="#contacts" title="Contacts">Order</a></button>`;
+  container.append(bottomAccordion);
+  container.addEventListener("click", (e) => {
+    if (e.target.value) {
+      bottomAccordion.classList.toggle("hidden");
+      container.classList.toggle("opened");
+    }
+  });
+
+  return container;
+};
+
+const drawPricesCards = () => {
+  dataPrices.forEach((el) => {
+    pricesItemContainer.append(drawPricesCard(el));
+  });
+};
+drawPricesCards();
+
+//contact selector
+
+const dataCity = [
+  {
+    city: "Canandaigua, NY",
+    phone: "+1	585	393 0001",
+    address: "151 Charlotte Street",
+  },
+  {
+    city: "New York City",
+    phone: "+1	212	456 0002",
+    address: "9 East 91st Street",
+  },
+  {
+    city: "Yonkers, NY",
+    phone: "+1	914	678 0003",
+    address: "511 Warburton Ave",
+  },
+  {
+    city: "Sherrill, NY",
+    phone: "+1	315	908 0004",
+    address: "14 WEST Noyes BLVD",
+  },
+];
+
+const contactsButton = document.getElementsByClassName("button-contact")[0];
+const contactsAccordion =
+  document.getElementsByClassName("accordion-contacts")[0];
+const selectCity = document.getElementsByClassName("select-city")[0];
+const currentCity = document.getElementById("current-city");
+// const selectContainer = document.getElementsByClassName('select-container')[0];
+const addressCard = document.getElementsByClassName(
+  "address-card-container"
+)[0];
+
+const toggleAccordion = () => {
+  contactsAccordion.classList.toggle("hidden");
+  selectCity.classList.toggle("select-city_shadow");
+  contactsButton.classList.toggle("opened-city");
+};
+
+contactsButton.addEventListener("click",toggleAccordion);
+
+const createCity = (item) => {
+  const city = document.createElement("p");
+  city.innerHTML = `${item.city}`;
+
+  city.addEventListener("click", () => {
+    toggleAccordion();
+    currentCity.innerHTML = `${item.city}`;
+    addressCard.innerHTML = "";
+    addressCard.append(createAddressCard(item));
+    addressCard.classList.remove("hidden");
+  });
+
+  return city;
+};
+
+dataCity.forEach((el) => contactsAccordion.append(createCity(el)));
+
+const createRow = (name, value) => {
+  const container = document.createElement("div");
+  const nameContainer = document.createElement("p");
+  nameContainer.innerHTML = `${name}`;
+  container.append(nameContainer);
+  const valueContainer = document.createElement("p");
+  valueContainer.innerHTML = `${value}`;
+  container.append(valueContainer);
+  return container;
+};
+
+const createAddressCard = (item) => {
+  const container = document.createElement("div");
+  container.classList.add("address-card");
+  container.append(createRow("City:", item.city));
+  container.append(createRow("Phone:", item.phone));
+  container.append(createRow("Office address:", item.address));
+  const buttonContainer = document.createElement('div');
+  const button = document.createElement("button");
+  button.innerHTML = "Call us";
+  buttonContainer.append(button);
+  container.append(buttonContainer);
+  return container;
+};

@@ -18,6 +18,7 @@ $black_color: #010201;
 $border_color: #e3e1d5;
 $arrow_button: #d9d9d9;
 $selecter_color: #d6e7d2;
+$selecter_hover_color: #c1e698;
 
 $tablet-width: 768px;
 $tablet-middle-width: 810px;
@@ -79,7 +80,6 @@ $content_width_mobile: 330px;
 }
 
 .wrapper {
-  // width: $desktop_width;
   margin: 0 auto;
 }
 
@@ -124,20 +124,15 @@ $content_width_mobile: 330px;
 
 .header__navigate {
   width: 1220px;
-  // height: 50px;
-  // margin: 42px 0;
   display: flex;
   justify-content: space-between;
 
   @include media-tablet {
     width: $content_width_tablet;
-    // margin: 35px 0;
   }
 
   @include media-mobile {
     width: $content_width_mobile;
-    // height: 100%;
-    // margin: 36px 0;
   }
 }
 
@@ -264,7 +259,6 @@ $content_width_mobile: 330px;
 //welcome
 
 .container-welcome {
-  // height: 532px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -272,21 +266,18 @@ $content_width_mobile: 330px;
   padding: 52px 109px 50.64px 109px;
 
   @include media-tablet {
-    // height: 420px;
     align-items: flex-start;
     padding: 36px 50px 70px 50px;
   }
 
   @include media-mobile() {
     padding: 24px 25px;
-    // height: 300px;
   }
 }
 
 .container-welcome__wrapper {
   img {
     width: 100%;
-    // height: 407.36px;
 
     @include media-tablet {
       width: 280px;
@@ -376,7 +367,7 @@ $content_width_mobile: 330px;
     @include font(16px, 20px, normal, 400, #000000, "Inter");
   }
 
-  &:hover a{
+  &:hover a {
     color: #ffffff;
   }
 
@@ -424,18 +415,14 @@ $content_width_mobile: 330px;
 //about
 
 .container-about {
-  // height: 666px;
-
   padding: 96px 109px 87px 109px;
 
   @include media-tablet {
-    // height: 783px;
     align-items: flex-start;
     padding: 40px 47px 92px 47px;
   }
 
   @include media-mobile() {
-    // height: 515px;
     padding: 30px 25px 24px 25px;
   }
 }
@@ -487,7 +474,6 @@ $content_width_mobile: 330px;
 
   img {
     width: 100%;
-    // height: 479px;
 
     @include media-tablet {
       width: 250px;
@@ -519,13 +505,10 @@ $content_width_mobile: 330px;
 .service-container {
   width: $content_width;
   margin: 40px 109px 121px 109px;
-  // margin-bottom: 121px;
-  // margin-top: 40px;
 
   @include media-tablet {
     width: $content_width_tablet;
     margin: 60px 50px 68px 50px;
-    // margin-bottom: 70px;
   }
 
   @include media-mobile() {
@@ -572,7 +555,6 @@ $content_width_mobile: 330px;
   justify-content: flex-start;
   align-items: center;
   gap: 158px;
-  // width: 1007px;
 
   @include media-tablet {
     flex-direction: column;
@@ -659,25 +641,20 @@ $content_width_mobile: 330px;
 
 //prices
 .container-prices {
-  // height: 558px;
   display: flex;
   justify-content: center;
   padding: 40px 109px 115px 109px;
 
   @include media-tablet {
-    // height: 585px;
     padding: 40px 50px 88.02px 50px;
   }
 
   @include media-mobile() {
-    // height: 512px;
     padding: 25px 76px 41px 76px;
   }
 }
 
 .container-prices__wrapper {
-  // margin-top: 40px;
-
   & > div {
     display: flex;
     flex-direction: column;
@@ -690,8 +667,6 @@ $content_width_mobile: 330px;
 
   @include media-mobile() {
     flex-direction: column;
-    // margin-top: 25px;
-    // align-items: center;
     justify-content: flex-start;
     gap: 22px;
   }
@@ -727,7 +702,6 @@ $content_width_mobile: 330px;
 }
 
 .prices-container__contact {
-  // width: 452px;
   align-items: flex-end;
 
   @include media-tablet {
@@ -761,11 +735,19 @@ $content_width_mobile: 330px;
 .button_prices {
   width: 162px;
   height: 50px;
-  @include font(20px, 26px, normal, 700, $orange_color, "Inika");
   background-color: white;
   border-radius: 5px;
   margin-bottom: 39px;
   margin-top: 39px;
+
+  a {
+    @include font(20px, 26px, normal, 700, $orange_color, "Inika");
+    text-decoration: none;
+  }
+
+  &:hover a {
+    color: #ffffff;
+  }
 
   @include media-tablet {
     margin-bottom: 34px;
@@ -777,7 +759,6 @@ $content_width_mobile: 330px;
     height: 35px;
     font-size: 15px;
     line-height: 20px;
-
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -803,13 +784,32 @@ $content_width_mobile: 330px;
     margin-top: 37px;
   }
 }
+.accordion-container {
+  background-color: $section_color;
+  border-radius: 20px;
+  padding: 16px 40px;
+  width: 250px;
+
+  @include media-mobile() {
+    padding: 15px 30px;
+  }
+}
+
+.opened {
+  background-color: $selecter_color;
+}
+
+.accordion-container.opened > div.prices-item > button {
+  background-color: #aea1a1;
+
+  img {
+    transform: rotate(180deg);
+  }
+}
 
 .prices-item {
-  border-radius: 20px;
-  background-color: $section_color;
   display: flex;
   gap: 54px;
-  padding: 16px 40px;
 
   @include media-mobile() {
     gap: 24px;
@@ -841,6 +841,48 @@ $content_width_mobile: 330px;
   }
 }
 
+.accordion-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+  border-top: solid 0.5px #aea1a1;
+
+  p {
+    padding-top: 6px;
+    @include font(10px, 10px, normal, 300, $light_grey, "Inter");
+  }
+
+  span:first-child {
+    @include font(16px, 20px, normal, 700, $orange_color, "Inter");
+  }
+
+  span:last-child {
+    @include font(12px, 20px, normal, 400, #000000, "Inter");
+  }
+
+  button {
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    width: 86px;
+    height: 25px;
+
+    a {
+      @include font(14px, 20px, normal, 700, $light_grey, "Inter");
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: $arrow_button;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
 //contacts
 
 .container-contacts {
@@ -853,23 +895,23 @@ $content_width_mobile: 330px;
   display: flex;
   justify-content: space-between;
   width: $content_width;
-  height: 550px;
+  // height: 550px;
 
   @include media-middle-tablet {
     width: $content_width_tablet;
     flex-direction: column-reverse;
     align-items: center;
-    height: 739px;
+    // height: 739px;
   }
 
   @include media-mobile() {
     width: $content_width_mobile;
-    height: 445px;
+    // height: 445px;
     justify-content: flex-end;
     gap: 80px;
   }
 
-  img {
+  .contacts-img-container img {
     margin-top: 53px;
     width: 100%;
 
@@ -924,23 +966,31 @@ $content_width_mobile: 330px;
 }
 
 .select-city {
+  display: flex;
   width: 100%;
   height: 50px;
-  background-color: $selecter_color;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border: none;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $selecter_hover_color;
   @include font(20px, 40px, normal, 400, $light_grey, "Inter");
-  appearance: none;
-  padding-left: 20px;
+  padding: 0 35px;
 
-  // @include media-mobile() {
-  //   width: 300px;
-  // }
+  &:hover {
+    background-color: $selecter_hover_color;
+  }
+
+  &:hover .button-contact {
+    background-color: #8ba07e;
+  }
+}
+
+.select-city_shadow {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: $selecter_color;
 }
 
 .select-container {
   margin-top: 148px;
-  position: relative;
   flex-shrink: 1;
   width: 450px;
 
@@ -953,23 +1003,71 @@ $content_width_mobile: 330px;
   }
 }
 
-.select-container::before {
-  content: url("/assets/images/arrow-white.svg");
-  position: absolute;
-  top: 4%;
-  right: 8%;
+.button-contact {
+  background-color: #aea1a1;
   width: 16px;
   height: 16px;
-  background-color: #aea1a1;
   border-radius: 50%;
+  border: none;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
 
-  @include media-tablet {
-    top: 30%;
+.accordion-contacts {
+  background-color: #dce9d9;
+  padding: 27px 35px;
+
+  p {
+    @include font(16px, 40px, normal, 400, #499a18, "Inter");
+    cursor: pointer;
+    border-bottom: 1px solid #d9d9d9;
+
+    &:hover {
+      color: $light_grey;
+      border-bottom: 1px solid $light_grey;
+    }
   }
+}
+
+.opened-city {
+  transform: rotate(180deg);
+}
+
+.address-card {
+  margin-top: 47px;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  padding: 17px 33px 32px 17px;
+  @include font(16px, 40px, normal, 400, $light_grey, "Inter");
+
+  div {
+    display: flex;
+  }
+
+  div:last-child {
+    justify-content: center;
+
+    button {
+      width: 122px;
+      height: 26px;
+      border: 1px solid #e06733;
+      border-radius: 5px;
+      @include font(10px, 13px, normal, 700, $light_grey, "Inika");
+      cursor: pointer;
+
+      &:hover {
+        background-color: $orange_color;
+      }
+    }
+  }
+
+  p:first-child {
+    color: #000000;
+    width: 128px;
+  }
+}
+
+.address-card-container {
+  margin-bottom: 15px;
 }
 
 //footer
