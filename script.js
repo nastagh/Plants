@@ -115,7 +115,6 @@ const serviceItemContainer = document.getElementsByClassName(
   "services-item-container"
 )[0];
 
-// let item;
 let checkedProjects = [];
 
 const drawProjectsCards = (projectsArray) => {
@@ -195,12 +194,20 @@ const pricesItemContainer = document.getElementsByClassName(
 const drawPricesCard = (item) => {
   const container = document.createElement("div");
   container.classList.add("accordion-container");
-  container.innerHTML = `<div class="prices-item">
-  <p class="prices-item-title">${item.type}</p>
-  <button class="button-prices-item" value=${item.type}">
-    <img src=${imagePath} />
-  </button>
-</div>`;
+  const pricesItem = document.createElement("div");
+  pricesItem.classList.add("prices-item");
+  const title = document.createElement("p");
+  title.classList.add("prices-item-title");
+  title.innerHTML = `${item.type}`;
+  pricesItem.append(title);
+  const arrowButton = document.createElement("button");
+  arrowButton.classList.add("button-prices-item");
+  arrowButton.value = `${item.type}`;
+  const img = document.createElement("img");
+  img.setAttribute("src", `${imagePath}`);
+  arrowButton.append(img);
+  pricesItem.append(arrowButton);
+  container.append(pricesItem);
   const bottomAccordion = document.createElement("div");
   bottomAccordion.classList.add("accordion-bottom");
   bottomAccordion.classList.add("hidden");
@@ -213,11 +220,9 @@ ${priceDescription}
 </div>
 <button><a href="#contacts" title="Contacts">Order</a></button>`;
   container.append(bottomAccordion);
-  container.addEventListener("click", (e) => {
-    if (e.target.value) {
-      bottomAccordion.classList.toggle("hidden");
-      container.classList.toggle("opened");
-    }
+  arrowButton.addEventListener("click", (e) => {
+    bottomAccordion.classList.toggle("hidden");
+    container.classList.toggle("opened");
   });
 
   return container;
@@ -260,7 +265,6 @@ const contactsAccordion =
   document.getElementsByClassName("accordion-contacts")[0];
 const selectCity = document.getElementsByClassName("select-city")[0];
 const currentCity = document.getElementById("current-city");
-// const selectContainer = document.getElementsByClassName('select-container')[0];
 const addressCard = document.getElementsByClassName(
   "address-card-container"
 )[0];
@@ -271,7 +275,7 @@ const toggleAccordion = () => {
   contactsButton.classList.toggle("opened-city");
 };
 
-contactsButton.addEventListener("click",toggleAccordion);
+contactsButton.addEventListener("click", toggleAccordion);
 
 const createCity = (item) => {
   const city = document.createElement("p");
@@ -307,7 +311,7 @@ const createAddressCard = (item) => {
   container.append(createRow("City:", item.city));
   container.append(createRow("Phone:", item.phone));
   container.append(createRow("Office address:", item.address));
-  const buttonContainer = document.createElement('div');
+  const buttonContainer = document.createElement("div");
   const button = document.createElement("button");
   button.innerHTML = "Call us";
   buttonContainer.append(button);

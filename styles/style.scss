@@ -32,12 +32,12 @@ $content_width_mobile: 330px;
 
 @font-face {
   font-family: "Inika";
-  src: url("./assets/fonts/Inika/Inika-Regular.ttf");
+  src: url("../assets/fonts/Inika/Inika-Regular.ttf");
 }
 
 @font-face {
   font-family: "Inter";
-  src: url("./assets/fonts/Inter/Inter-Regular.ttf");
+  src: url("../assets/fonts/Inter/Inter-Regular.ttf");
 }
 
 @mixin font($size, $height, $style, $weight, $color, $family) {
@@ -365,6 +365,10 @@ $content_width_mobile: 330px;
   a {
     text-decoration: none;
     @include font(16px, 20px, normal, 400, #000000, "Inter");
+
+    @include media-mobile() {
+      font-size: 10px;
+    }
   }
 
   &:hover a {
@@ -373,7 +377,6 @@ $content_width_mobile: 330px;
 
   @include media-mobile() {
     width: 100px;
-    font-size: 10px;
     height: 34.14px;
   }
 }
@@ -792,6 +795,7 @@ $content_width_mobile: 330px;
 
   @include media-mobile() {
     padding: 15px 30px;
+    width: 180px;
   }
 }
 
@@ -813,7 +817,7 @@ $content_width_mobile: 330px;
 
   @include media-mobile() {
     gap: 24px;
-    padding: 15px 30px;
+    // padding: 15px 30px;
   }
 }
 
@@ -923,7 +927,7 @@ $content_width_mobile: 330px;
 
     @include media-mobile() {
       width: 100px;
-      margin-top: 53px;
+      margin-top: 0;
       margin-left: 0;
     }
   }
