@@ -171,7 +171,7 @@ serviceButtonContainer.addEventListener("click", (e) => {
 
 const priceDescription =
   "Release of Letraset sheets containing Lorem Ipsum passages, and more recently";
-const imagePath = "../assets/images/arrow.svg";
+const imagePath = "./assets/images/arrow.svg";
 const dataPrices = [
   {
     type: "Basics",
