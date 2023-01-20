@@ -41,9 +41,9 @@ const projects = [
     id: 1,
     img: {
       srcset:
-        "../assets/images/first.png    1220w, ../assets/images/first768.png  768w",
+        "../../assets/images/first.png    1220w, ../../assets/images/first768.png  768w",
       sizes: mediaSize,
-      src: "../assets/images/first.png",
+      src: "../../assets/images/first.png",
       alt: "garden care",
     },
     text: "Garden care",
@@ -53,9 +53,9 @@ const projects = [
     id: 2,
     img: {
       srcset:
-        "../assets/images/first-2.png     1220w, ../assets/images/first-2-768.png  768w",
+        "../../assets/images/first-2.png     1220w, ../../assets/images/first-2-768.png  768w",
       sizes: mediaSize,
-      src: "../assets/images/first-2.png",
+      src: "../../assets/images/first-2.png",
       alt: "Planting",
     },
     text: "Planting",
@@ -65,9 +65,9 @@ const projects = [
     id: 3,
     img: {
       srcset:
-        "../assets/images/first-3.png     1220w, ../assets/images/first-3-768.png  768w",
+        "../../assets/images/first-3.png     1220w, ../../assets/images/first-3-768.png  768w",
       sizes: mediaSize,
-      src: "../assets/images/first-3.png",
+      src: "../../assets/images/first-3.png",
       alt: "Lawn care",
     },
     text: "Lawn care",
@@ -77,9 +77,9 @@ const projects = [
     id: 4,
     img: {
       srcset:
-        "../assets/images/first-4.png     1220w, ../assets/images/first-4-768.png  768w",
+        "../../assets/images/first-4.png     1220w, ../../assets/images/first-4-768.png  768w",
       sizes: mediaSize,
-      src: "../assets/images/first-4.png",
+      src: "../../assets/images/first-4.png",
       alt: "Planting",
     },
     text: "Planting",
@@ -89,9 +89,9 @@ const projects = [
     id: 5,
     img: {
       srcset:
-        "../assets/images/first-5.png     1220w, ../assets/images/first-5-768.png  768w",
+        "../../assets/images/first-5.png     1220w, ../../assets/images/first-5-768.png  768w",
       sizes: mediaSize,
-      src: "../assets/images/first-5.png",
+      src: "../../assets/images/first-5.png",
       alt: "Garden care",
     },
     text: "Garden care",
@@ -101,9 +101,9 @@ const projects = [
     id: 6,
     img: {
       srcset:
-        "../assets/images/first-6.png     1220w, ../assets/images/first-6-768.png  768w",
+        "../../assets/images/first-6.png     1220w, ../../assets/images/first-6-768.png  768w",
       sizes: mediaSize,
-      src: "../assets/images/first-6.png",
+      src: "../../assets/images/first-6.png",
       alt: "Planting",
     },
     text: "Planting",
@@ -171,7 +171,7 @@ serviceButtonContainer.addEventListener("click", (e) => {
 
 const priceDescription =
   "Release of Letraset sheets containing Lorem Ipsum passages, and more recently";
-const imagePath = "../assets/images/arrow.svg";
+const imagePath = "../../assets/images/arrow.svg";
 const dataPrices = [
   {
     type: "Basics",
