@@ -41,9 +41,9 @@ const projects = [
     id: 1,
     img: {
       srcset:
-        "../../assets/images/first.png    1220w, ../../assets/images/first768.png  768w",
+        "Plants/assets/images/first.png    1220w, Plants/assets/images/first768.png  768w",
       sizes: mediaSize,
-      src: "../assets/images/first.png",
+      src: "Plants/assets/images/first.png",
       alt: "garden care",
     },
     text: "Garden care",
